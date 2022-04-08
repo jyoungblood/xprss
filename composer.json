@@ -1,0 +1,27 @@
+{
+	"name": "hxgf/xprss",
+	"description": "Fast, unopinionated, minimalist web framework for PHP",
+	"version": "0.0.1",
+	"type": "library",
+	"authors": [
+    {
+      "name": "Alan Berdinelli",
+      "email": "aeberdinelli@gmail.com"
+    },
+		{
+      "name": "Jonathan Youngblood",
+      "email": "jy@hxgf.io"
+		}
+	],
+	"keywords": ["framework"],
+	"autoload": {
+		"psr-4": {
+			"Express\\": ["src/Express/"],
+			"Jade\\": ["src/Jade/"]
+		}
+	},
+	"require": {
+		"mustache/mustache": "^2.12",
+		"oyejorge/less.php": "~1.7.0.9"
+	}
+}

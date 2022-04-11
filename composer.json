@@ -1,7 +1,7 @@
 {
 	"name": "hxgf/xprss",
 	"description": "Fast, unopinionated, minimalist web framework for PHP",
-	"version": "0.0.1",
+	"version": "0.1.0",
 	"type": "library",
 	"authors": [
     {

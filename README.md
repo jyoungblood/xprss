@@ -12,12 +12,12 @@ The preferred installation is using Composer:
 
 `composer require hxgf/xprss:0.0.2@dev`
 
-Then, move the .htaccess to the root of your site and you're done:
+Then, copy the .htaccess to the root of your site:
 
-`mv vendor/hxgf/xprss/.htaccess ./.htaccess`
+`cp vendor/hxgf/xprss/.htaccess ./.htaccess`
 
 ## Usage
-If you installed using composer, you can just do:
+If you installed using composer it's easy to initialize:
 
 ```php
 <?php

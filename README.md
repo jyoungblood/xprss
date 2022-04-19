@@ -10,7 +10,7 @@ The first version of this framework is a direct clone of [express-php](https://g
 
 The preferred installation is using Composer:
 
-`composer require hxgf/xprss:0.3.0@dev`
+`composer require hxgf/xprss:0.0.3@dev`
 
 Then, copy the .htaccess to the root of your site:
 

@@ -1,7 +1,7 @@
 <?php
-namespace Express;
+namespace XPRSS;
 
-use Express\ExpressStatic;
+use XPRSS\XPRSSstatic;
 
 /**
  * Regex to search for variable names when calling the ->use function in a Router
@@ -19,7 +19,7 @@ const REGEX_VAR = '/:([a-zA-Z_\-0-9]+)\//i';
 const REGEX_VAR_URL = '([a-zA-Z0-9_\-@]+)/';
 
 
-class Express
+class XPRSS
 {
 	/**
 	 * The url we are handling (the value in the ?route querystring sent by htaccess)
@@ -70,7 +70,7 @@ class Express
 	protected $middlewares = array();
 
 	/**
-	 * The default settings for ExpressPHP
+	 * The default settings for XPRSS
 	 * @var array
 	 */
 	protected $settings = array(
@@ -163,7 +163,7 @@ class Express
 	/**
 	 * Plug-in a middleware (Router)
 	 *
-	 * @param Router $router An \Express\Router instance
+	 * @param Router $router An \XPRSS\Router instance
 	 * @return void
 	 */
 	public function use($middleware)
@@ -248,17 +248,17 @@ class Express
 	 * Serve static files
 	 *
 	 * @param string The path where the files are
-	 * @return ExpressStatic a new instance
+	 * @return XPRSSstatic a new instance
 	 */
 	public function static($path)
 	{
-		return new ExpressStatic($path, $this->current);
+		return new XPRSSstatic($path, $this->current);
 	}
 
 	/**
-	 * Make express-php handle the request.
+	 * Make XPRSS handle the request.
 	 *
-	 * @param Router An instance of Router (@see \Express\Router)
+	 * @param Router An instance of Router (@see \XPRSS\Router)
 	 * @param function A function to call after the requests have been handled.
 	 * @return void
 	 */

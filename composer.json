@@ -4,10 +4,6 @@
 	"type": "library",
   "license": "MIT",
 	"authors": [
-    {
-      "name": "Alan Berdinelli",
-      "email": "aeberdinelli@gmail.com"
-    },
 		{
       "name": "Jonathan Youngblood",
       "email": "jy@hxgf.io"
@@ -16,12 +12,7 @@
 	"keywords": ["framework"],
 	"autoload": {
 		"psr-4": {
-			"Express\\": ["src/Express/"],
-			"Jade\\": ["src/Jade/"]
+			"XPRSS\\": ["src/XPRSS/"]
 		}
-	},
-	"require": {
-		"mustache/mustache": "^2.12",
-		"oyejorge/less.php": "~1.7.0.9"
 	}
 }

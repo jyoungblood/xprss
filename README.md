@@ -10,11 +10,20 @@ The first version of this framework is a direct clone of [express-php](https://g
 
 The preferred installation is using Composer:
 
-`composer require hxgf/xprss:0.0.2@dev`
+`composer require hxgf/xprss:0.3.0@dev`
 
 Then, copy the .htaccess to the root of your site:
 
 `cp vendor/hxgf/xprss/.htaccess ./.htaccess`
+
+(if you don't want to copy, put this in a new .htaccess file)
+
+```
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /index.php?route=$1 [L,QSA]
+```
 
 ## Usage
 If you installed using composer it's easy to initialize:
@@ -23,17 +32,17 @@ If you installed using composer it's easy to initialize:
 <?php
 include __DIR__.'/vendor/autoload.php';
 
-use Express\Express;
-use Express\Router;
+use XPRSS\XPRSS;
+use XPRSS\Router;
 
-$express = new Express();
+$xprss = new XPRSS();
 $router = new Router();
 
 $router->get('/', function($req, $res) {
 	$res->send('hello world!');
 });
 
-$express->listen($router);
+$xprss->listen($router);
 ?>
 ```
 
@@ -94,24 +103,26 @@ If you wish to serve static files (likes images, html only) you can use:
 
 ```php
 // If you visit /static/image.png, this will return the file views/public/image.png
-$router->use('/static', $express->static('views/public'));
+$router->use('/static', $xprss->static('views/public'));
 ```
 
 ## Template engines
-You have avaible [Pug](https://pugjs.org) (ex Jade) and [Mustache](https://mustache.github.io/). Here's an example:
+You're on your own for templating...at some point we'll have a guide for how to support various template engines (jade/pug, handlebars, twig, etc)
+
+We'd like to to be as easy as:
 
 ```php
 // Configure the engine to Pug
-$express->set('view engine','pug');
+$xprss->set('view engine','pug');
 
 // Jade was renamed to Pug, but we recognize it ;)
-$express->set('view engine','jade');
+$xprss->set('view engine','jade');
 
 // Or Mustache
-$express->set('view engine','mustache');
+$xprss->set('view engine','mustache');
 
 // Set the path to the template files
-$express->set('views','./views/pug');
+$xprss->set('views','./views/pug');
 
 // Now you can do something like this
 $router->get('/', function($req, $res) {
@@ -129,27 +140,6 @@ $router->get('/users/:username', function($req, $res) {
 
 ```
 
-## CSS Precompilers
-You can use Less instead of CSS if you want. An example:
-
-```php
-use \Express\ExpressLess;
-
-/**
- * Let's say you have a /less folder on your project
- * And you want every request that goes into /css to load the less file within that folder instead
- *
- * In this example /css/global.css will load the compiled version of /less/global.less
- * Same for /css/something.css -> /less/something.less
- */
-
-$less = new ExpressLess($express, array(
-	'source'	=> __DIR__.'/less',
-	'dest'		=> '/css'
-));
-
-// Yes, it's that simple.
-```
 
 ## Request info
 - You have the body of the request in $res->body no matter if you re handling POST or PUT.

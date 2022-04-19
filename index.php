@@ -1,18 +1,25 @@
 <?php
 include __DIR__.'/vendor/autoload.php';
 
-use \Express\Express;
-use \Express\Router;
+use \XPRSS\XPRSS;
+use \XPRSS\Router;
 
-$express = new Express();
+$xprss = new XPRSS();
 $router = new Router();
 
 // The complete request info can be var_dumped calling getInfo():
-$express->getInfo();
+$xprss->getInfo();
 
 /**
- * Here you have a few common usages for ExpressPHP
+ * Here you have a few common usages for XPRSS
  */
+
+
+// hello world
+$router->get('/', function($req, $res) {
+  echo "hello cleveland";
+});
+
 
 // Handle $_POST variables
 $router->post('/', function($req, $res) {
@@ -20,6 +27,8 @@ $router->post('/', function($req, $res) {
 		'name'	=> $req->body->name
 	));
 });
+
+
 
 // Handle $_GET variables in /page path, for example /path?name=Alan
 $router->get('/path', function($req, $res) {
@@ -68,5 +77,5 @@ $router->get('/redirect', function($req, $res) {
 /**
  * listen() must receive an instance of Router to work.
  */
-$express->listen($router);
+$xprss->listen($router);
 ?>

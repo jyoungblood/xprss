@@ -1,8 +1,8 @@
 <?php
-namespace Express;
+namespace XPRSS;
 
 // Load template engines
-use Jade\Jade;
+// use Jade\Jade;
 
 /**
  * This class is called automatically when handling a request and shouldn't be called directly
@@ -29,7 +29,7 @@ class Response
 	private $cookies = false;
 
 	/**
-	 * Variables avaible within the entire instance (@see \Express\Express)
+	 * Variables avaible within the entire instance (@see \XPRSS\XPRSS)
 	 * @var stdClass
 	 */
 	private $locals;
@@ -48,8 +48,8 @@ class Response
 	/**
 	 * Constructor
 	 *
-	 * @param array The default express settings
-	 * @param stdClass An object with the app locals (@see \Express\Express)
+	 * @param array The default XPRSS settings
+	 * @param stdClass An object with the app locals (@see \XPRSS\XPRSS)
 	 * @return void
 	 */
 	public function __construct($settings = array(), $locals = null)

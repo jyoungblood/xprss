@@ -1,20 +1,25 @@
 
-# XPRSS
+# XPRSS — A fast, unopinionated, minimalist web framework for PHP.
 
-A fast, unopinionated, minimalist web framework for PHP.
+
 
 The first version of this framework is a direct clone of [express-php](https://github.com/aeberdinelli/express-php), which tries to clone the NodeJS [ExpressJS framework](https://www.npmjs.com/package/express) writing style. It does not have an event loop, it just mimics the method and helpers names that ExpressJS offers.
 
 ## Install
 **Note**: To run XPRSS you need PHP >= 7.0 and Apache.
 
-The preferred installation is using Composer:
+[ ] install w/ composer
+[ ] vs do it manually
+```
+composer require hxgf/xprss:0.0.3@dev
+```
 
-`composer require hxgf/xprss:0.0.3@dev`
 
 Then, copy the .htaccess to the root of your site:
 
-`cp vendor/hxgf/xprss/.htaccess ./.htaccess`
+```
+cp vendor/hxgf/xprss/.htaccess ./.htaccess
+```
 
 (if you don't want to copy, put this in a new .htaccess file)
 
@@ -25,8 +30,22 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ /index.php?route=$1 [L,QSA]
 ```
 
-## Usage
-If you installed using composer it's easy to initialize:
+(you can also do it for nginx)
+
+```
+location / {
+  if (!-e $request_filename){
+    rewrite ^(.*)$ /index.php?route=$1 break;
+  }
+}
+```
+
+## Usage / DEMO example init
+
+here's a quick example of how to initialize. if you're interested in more boilerplate check out [the docs] for more options and also the [index.php file in the app] contains a full example and also also [create-xprss-app] for a reasonable boilerplate starter kit thing
+
+[ ] initializing w/ composer
+[ ] vs doing it manually
 
 ```php
 <?php
@@ -39,7 +58,7 @@ $xprss = new XPRSS();
 $router = new Router();
 
 $router->get('/', function($req, $res) {
-	$res->send('hello world!');
+	$res->send('<h1>Hello Cleveland!</h1>');
 });
 
 $xprss->listen($router);

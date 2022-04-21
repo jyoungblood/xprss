@@ -12,10 +12,12 @@
       whatever-->??;
 ```
 
+
+
 This is almost a direct clone of [express-php](https://github.com/aeberdinelli/express-php), which tries to clone the NodeJS [ExpressJS framework](https://www.npmjs.com/package/express) writing style. It does not have an event loop, it just mimics the method and helpers names that ExpressJS offers.
 
 ## Install
-**Note**: To run XPRSS you need PHP >= 7.0 and Apache.
+Requirements: PHP >= 7.0 and Apache.
 
 
 ```

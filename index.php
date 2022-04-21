@@ -1,14 +1,14 @@
 <?php
 include __DIR__.'/vendor/autoload.php';
 
-use \XPRSS\XPRSS;
-use \XPRSS\Router;
+use XPRSS\Application;
+use XPRSS\Router;
 
-$xprss = new XPRSS();
+$app = new Application();
 $router = new Router();
 
 // The complete request info can be var_dumped calling getInfo():
-$xprss->getInfo();
+$app->getInfo();
 
 /**
  * Here you have a few common usages for XPRSS
@@ -17,7 +17,7 @@ $xprss->getInfo();
 
 // hello world
 $router->get('/', function($req, $res) {
-  echo "hello cleveland";
+	$res->send('<h1>Hello Cleveland!</h1>');
 });
 
 
@@ -77,5 +77,5 @@ $router->get('/redirect', function($req, $res) {
 /**
  * listen() must receive an instance of Router to work.
  */
-$xprss->listen($router);
+$app->listen($router);
 ?>

@@ -1,7 +1,8 @@
 <?php
 namespace XPRSS;
 
-use XPRSS\XPRSSstatic;
+use XPRSS\Request;
+
 
 /**
  * Regex to search for variable names when calling the ->use function in a Router
@@ -19,7 +20,7 @@ const REGEX_VAR = '/:([a-zA-Z_\-0-9]+)\//i';
 const REGEX_VAR_URL = '([a-zA-Z0-9_\-@]+)/';
 
 
-class XPRSS
+class Application
 {
 	/**
 	 * The url we are handling (the value in the ?route querystring sent by htaccess)
@@ -248,11 +249,11 @@ class XPRSS
 	 * Serve static files
 	 *
 	 * @param string The path where the files are
-	 * @return XPRSSstatic a new instance
+	 * @return Request a new instance
 	 */
 	public function static($path)
 	{
-		return new XPRSSstatic($path, $this->current);
+		return new Request($path, $this->current);
 	}
 
 	/**

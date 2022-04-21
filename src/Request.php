@@ -5,7 +5,7 @@ namespace XPRSS;
  * This class is called automatically when handling a request and shouldn't be called directly
  */
 
-class XPRSSstatic
+class Request
 {
 	/**
 	 * The current route we are handling

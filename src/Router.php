@@ -1,7 +1,7 @@
 <?php
 namespace XPRSS;
 
-use XPRSS\XPRSSstatic;
+use XPRSS\Request;
 
 /**
  * Generates the routing map to be handled
@@ -69,7 +69,7 @@ class Router
 		}
 
 		// Handle static files
-		elseif ($callback instanceof XPRSSstatic)
+		elseif ($callback instanceof Request)
 		{
 			$callback->init($route);
 		}

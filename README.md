@@ -1,7 +1,14 @@
 
 # XPRSS — A fast, unopinionated, minimalist web framework for PHP.
 
-
+```mermaid
+  graph TD;
+      A-->B;
+      A-->C;
+      B-->D;
+      C-->E;
+      A-->whatever;
+```
 
 The first version of this framework is a direct clone of [express-php](https://github.com/aeberdinelli/express-php), which tries to clone the NodeJS [ExpressJS framework](https://www.npmjs.com/package/express) writing style. It does not have an event loop, it just mimics the method and helpers names that ExpressJS offers.
 
@@ -51,17 +58,17 @@ here's a quick example of how to initialize. if you're interested in more boiler
 <?php
 include __DIR__.'/vendor/autoload.php';
 
-use XPRSS\XPRSS;
+use XPRSS\Application;
 use XPRSS\Router;
 
-$xprss = new XPRSS();
+$app = new Application();
 $router = new Router();
 
 $router->get('/', function($req, $res) {
 	$res->send('<h1>Hello Cleveland!</h1>');
 });
 
-$xprss->listen($router);
+$app->listen($router);
 ?>
 ```
 
@@ -122,7 +129,7 @@ If you wish to serve static files (likes images, html only) you can use:
 
 ```php
 // If you visit /static/image.png, this will return the file views/public/image.png
-$router->use('/static', $xprss->static('views/public'));
+$router->use('/static', $app->static('views/public'));
 ```
 
 ## Template engines
@@ -132,16 +139,16 @@ We'd like to to be as easy as:
 
 ```php
 // Configure the engine to Pug
-$xprss->set('view engine','pug');
+$app->set('view engine','pug');
 
 // Jade was renamed to Pug, but we recognize it ;)
-$xprss->set('view engine','jade');
+$app->set('view engine','jade');
 
 // Or Mustache
-$xprss->set('view engine','mustache');
+$app->set('view engine','mustache');
 
 // Set the path to the template files
-$xprss->set('views','./views/pug');
+$app->set('views','./views/pug');
 
 // Now you can do something like this
 $router->get('/', function($req, $res) {

@@ -1,24 +1,25 @@
 
 # XPRSS — A fast, unopinionated, minimalist web framework for PHP.
 
+
 ```mermaid
   graph TD;
       A-->B;
       A-->C;
       B-->D;
       C-->E;
-      A-->whatever;
+      A-->whatever
+      whatever-->??;
 ```
 
-The first version of this framework is a direct clone of [express-php](https://github.com/aeberdinelli/express-php), which tries to clone the NodeJS [ExpressJS framework](https://www.npmjs.com/package/express) writing style. It does not have an event loop, it just mimics the method and helpers names that ExpressJS offers.
+This is almost a direct clone of [express-php](https://github.com/aeberdinelli/express-php), which tries to clone the NodeJS [ExpressJS framework](https://www.npmjs.com/package/express) writing style. It does not have an event loop, it just mimics the method and helpers names that ExpressJS offers.
 
 ## Install
 **Note**: To run XPRSS you need PHP >= 7.0 and Apache.
 
-[ ] install w/ composer
-[ ] vs do it manually
+
 ```
-composer require hxgf/xprss:0.0.3@dev
+composer require hxgf/xprss:0.0.4@dev
 ```
 
 
@@ -51,8 +52,6 @@ location / {
 
 here's a quick example of how to initialize. if you're interested in more boilerplate check out [the docs] for more options and also the [index.php file in the app] contains a full example and also also [create-xprss-app] for a reasonable boilerplate starter kit thing
 
-[ ] initializing w/ composer
-[ ] vs doing it manually
 
 ```php
 <?php
@@ -168,7 +167,10 @@ $router->get('/users/:username', function($req, $res) {
 
 
 ## Request info
-- You have the body of the request in $res->body no matter if you re handling POST or PUT.
-- You have the query string under $req->query
-- You have the cookies in $req->cookies
-- You have all the request headers in $req->headers
+- body of the request: $res->body
+- query string: $req->query
+- cookies: $req->cookies
+- all the request headers: $req->headers
+
+
+

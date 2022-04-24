@@ -12,7 +12,7 @@
 	"keywords": ["framework"],
 	"autoload": {
 		"psr-4": {
-			"XPRSS\\": ["src/XPRSS/"]
+			"XPRSS\\": ["src/"]
 		}
 	}
 }

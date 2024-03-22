@@ -21,14 +21,14 @@ Requirements: PHP >= 7.0 and Apache.
 
 
 ```
-composer require hxgf/xprss:0.0.4@dev
+composer require jyoungblood/xprss:0.0.4@dev
 ```
 
 
 Then, copy the .htaccess to the root of your site:
 
 ```
-cp vendor/hxgf/xprss/.htaccess ./.htaccess
+cp vendor/jyoungblood/xprss/.htaccess ./.htaccess
 ```
 
 (if you don't want to copy, put this in a new .htaccess file)

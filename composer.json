@@ -1,5 +1,5 @@
 {
-	"name": "hxgf/xprss",
+	"name": "jyoungblood/xprss",
 	"description": "Fast, unopinionated, minimalist web framework for PHP",
 	"type": "library",
   "license": "MIT",
